@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube to Claude",
+  "version": "1.0",
+  "description": "Send YouTube video transcripts to Claude with one click",
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://claude.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content_scripts/claude.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube to Claude"
+  }
+}
