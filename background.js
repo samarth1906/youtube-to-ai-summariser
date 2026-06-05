@@ -1,4 +1,4 @@
-const PROMPT_PREFIX = `Please analyze this YouTube video transcript and provide:
+const PROMPT_PREFIX = `Please summarize this YouTube video transcript. Provide:
 1. A concise summary (2-3 sentences)
 2. Key points and main ideas
 3. Any important insights or takeaways
@@ -6,14 +6,21 @@ const PROMPT_PREFIX = `Please analyze this YouTube video transcript and provide:
 Transcript:
 `;
 
+const TARGET_URLS = {
+  claude:  'https://claude.ai/new',
+  gemini:  'https://gemini.google.com/',
+  chatgpt: 'https://chatgpt.com/'
+};
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'PROCESS_VIDEO') {
-    processVideo(message.tabId).then(sendResponse);
+    const tabId = message.tabId ?? sender.tab?.id;
+    processVideo(tabId, message.target || 'claude').then(sendResponse);
     return true;
   }
 });
 
-async function processVideo(tabId) {
+async function processVideo(tabId, target = 'claude') {
   let results;
   try {
     results = await chrome.scripting.executeScript({
@@ -34,7 +41,7 @@ async function processVideo(tabId) {
 
   const prompt = PROMPT_PREFIX + result.transcript;
   await chrome.storage.local.set({ pendingPrompt: prompt });
-  await chrome.tabs.create({ url: 'https://claude.ai/new' });
+  await chrome.tabs.create({ url: TARGET_URLS[target] || TARGET_URLS.claude });
 
   return { success: true };
 }
