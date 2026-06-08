@@ -1,28 +1,29 @@
 # YouTube to AI Summarizer
 
-A lightweight Chrome extension that extracts YouTube transcripts and sends them to your AI chat of choice — so you can summarise any video in seconds without watching it.
+A Chrome extension that extracts YouTube transcripts and lets you summarise them with any LLM Claude, ChatGPT, Gemini, or whatever you prefer. Includes a built-in chat so your summaries and conversations are saved and stored.
 
 ## Why
 
-Long YouTube videos often contain 5 minutes of useful content buried in an hour of runtime. This extension pulls the transcript and drops it straight into Gemini, Claude, ChatGPT, or any other LLM chat — no copy-pasting, no fuss.
+YouTube has a built-in AI summary feature powered by Gemini. It's not great. The summaries are shallow, you can ask limited follow-up questions, and you're locked into one model with no way to switch.
+
+This extension fixes that, extract the transcript and send it to whichever AI you actually want to use, then continue the conversation in a persistent chat that stores your history.
 
 ## How it works
 
 1. Open any YouTube video
 2. Click the extension icon
-3. The transcript is extracted and pasted into your chosen AI chat
-4. Ask for a summary, key points, or anything else
+3. The transcript is extracted and loaded into the built-in chat
+4. Choose your preferred LLM and ask anything — summary, key points, deep dive
+5. Your chats are saved so you can come back to them later
 
 ## Features
 
-- Extracts YouTube auto-generated and manual captions
-- Works with any LLM chat interface (Gemini, Claude, ChatGPT, etc.)
+- Extracts YouTube captions and transcripts
+- Works with any LLM — not locked to Gemini
+- Built-in chat interface with persistent history
 - No backend — runs entirely in the browser
-- No data stored or sent anywhere except your chosen AI chat
 
 ## Installation
-
-> Not yet on the Chrome Web Store — install manually:
 
 1. Clone or download this repo
 2. Go to `chrome://extensions`
@@ -33,11 +34,7 @@ Long YouTube videos often contain 5 minutes of useful content buried in an hour 
 
 - JavaScript
 - Chrome Extensions API (Manifest V3)
-- YouTube transcript/caption extraction via DOM
-
-## Contributing
-
-Open to issues and PRs. Built as a solo side project — feedback welcome.
+- YouTube transcript extraction via DOM
 
 ## License
 
