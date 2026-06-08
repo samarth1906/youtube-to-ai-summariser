@@ -1,0 +1,1 @@
+Youtubes current AI feature for summarizing transcripts is quite poor and it does not afford the flexibility to use whatever AI model you want to use so I built an extension which allows you to either use Claude Chatgpt or even Gemini to summarize your Youtube transcripts without copying a transcript from another website and clicking on it 
