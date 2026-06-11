@@ -1,7 +1,10 @@
-const PROMPT_PREFIX = `Please summarize this YouTube video transcript. Provide:
-1. A concise summary (2-3 sentences)
+const PROMPT_PREFIX = `Please analyze this YouTube video transcript. Provide:
+1. A summary covering the main content (as long as needed to cover the key material)
 2. Key points and main ideas
 3. Any important insights or takeaways
+4. Fact-check: Identify the main factual claims or arguments made in the video and evaluate whether they hold up - note anything that seems exaggerated, misleading, outdated, or contradicted by well-established information
+5. Counterarguments: For the video's central argument or thesis, research and present the strongest counterarguments or alternative perspectives, if applicable
+6. Verdict: Based on the above, is this video worth watching? Briefly explain why or why not
 
 Transcript:
 `;
